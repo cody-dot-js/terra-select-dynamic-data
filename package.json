@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "random-words": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-intl": "^2.9.0",
+    "react-scripts": "3.0.1",
+    "terra-aggregate-translations": "^1.1.0",
+    "terra-base": "^5.9.0",
+    "terra-form-select": "^5.18.0"
   },
   "scripts": {
+    "aggregate-translations": "tt-aggregate-translations -b ./ -d ./src/**/translations -d ./translations -o ./node_modules/terra-i18n/node_modules -f es6",
+    "prestart": "npm run aggregate-translations",
+    "prebuild": "npm run aggregate-translations",
+    "deploy": "gh-pages -d build",
+    "predeploy": "react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "node-sass": "^4.12.0"
   }
 }
